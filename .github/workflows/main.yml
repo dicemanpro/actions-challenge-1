@@ -1,21 +1,20 @@
 name: challenge-1
 on: push
 jobs:
-  job1:
-    name: first job
+  ubuntu:
     runs-on: ubuntu-latest
-    steps: |
-        name: Run a one-line scrip
-        run: echo Hello, world!
-  job2:
-    needs: [job1]
+    steps:
+     - run: date
+  windows:
     runs-on: windows-latest
-    steps: |
-      name: Run a one-line scrip
-      run: echo Hello, world!
-  job3:
-    needs: [job2]
+    steps:
+     - run: date
+  macos:
     runs-on: macos-latest
-    steps: |
-      name: Run a one-line scrip
-      run: echo Hello, world!
+    steps:
+     - run: date
+  depends:
+    needs: [ubuntu,windows,macos]
+    runs-on: macos-latest
+    steps:
+     - run: date
