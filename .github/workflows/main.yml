@@ -5,20 +5,17 @@ jobs:
     name: first job
     runs-on: ubuntu-latest
     steps: |
-      uses:
         name: Run a one-line scrip
         run: echo Hello, world!
   job2:
     needs: [job1]
     runs-on: windows-latest
     steps: |
-      uses: actions/checkout@v3
       name: Run a one-line scrip
       run: echo Hello, world!
   job3:
     needs: [job2]
     runs-on: macos-latest
     steps: |
-      uses: actions/checkout@v3
       name: Run a one-line scrip
       run: echo Hello, world!
